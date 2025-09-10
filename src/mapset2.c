@@ -25,8 +25,7 @@ int	is_map_surrounded(t_runtime *r)
 
 	i = 0;
 	last = 0;
-	if (chk_siderows(r) != 0)
-		map_error();
+	check_hole(r);
 	if (!only_wall(r->map.map[i]))
 		map_error();
 	i++;

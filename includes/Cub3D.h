@@ -185,6 +185,7 @@ t_point	calcul_inter(t_runtime *r, float dir);
 t_point	calcul_inter2(t_runtime *r, float dir);
 char	*ft_strdup_r(const char *s1);
 int		chk_siderows(t_runtime *r);
+void	check_hole(t_runtime *r);
 char	**erase_empty_lines(char **file);
 int		file_len(char **file);
 int		is_map(char *line);

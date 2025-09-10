@@ -37,7 +37,7 @@ void	spwn_chk(int count)
 	if (count > 1)
 	{
 		printf("Error: More than one spawn point!\n%d \
-spawns detected\n", count);
+or more spawns detected\n", count);
 		exit(1);
 	}
 	if (!count)
@@ -55,7 +55,7 @@ int	pos_chk(t_runtime *r, int y, int x, int count)
 		r->player.pdir_v = PI / 2;
 		r->player.pdir = PI / 2;
 	}
-	else if (r->map.map[y][x] == 'W')
+	else if (r->map.map[y][x] == 'E')
 	{
 		r->player.pdir_v = PI;
 		r->player.pdir = PI;
@@ -65,7 +65,7 @@ int	pos_chk(t_runtime *r, int y, int x, int count)
 		r->player.pdir_v = 3 * PI / 2;
 		r->player.pdir = 3 * PI / 2;
 	}
-	else if (r->map.map[y][x] == 'E')
+	else if (r->map.map[y][x] == 'W')
 	{
 		r->player.pdir_v = 0;
 		r->player.pdir = 0;

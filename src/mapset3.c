@@ -12,40 +12,6 @@
 
 #include "../includes/Cub3D.h"
 
-void	mini_siderowsl1(t_runtime *r, int i, int j)
-{
-	r->len1 = my_strlen(r->map.map[i]);
-	if (r->map.map[i + 1])
-		r->len2 = my_strlen(r->map.map[i + 1]);
-	if (r->len1 > r->len2)
-	{
-		j = r->len2;
-		minisiderowsl2(r, i, j);
-	}
-	if (r->len2 > r->len1)
-	{
-		j = r->len1;
-		minisiderowsl3(r, i, j);
-	}
-}
-
-int	chk_siderows(t_runtime *r)
-{
-	int	i;
-	int	j;
-
-	i = 0;
-	j = 0;
-	r->len1 = 0;
-	r->len2 = 0;
-	while (r->map.map[i])
-	{
-		mini_siderowsl1(r, i, j);
-		i++;
-	}
-	return (0);
-}
-
 float	calucl_dist(float x0, float x1, float y0, float y1)
 {
 	float	dist;

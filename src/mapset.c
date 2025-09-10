@@ -57,26 +57,52 @@ int	only_wall(char *line)
 	return (1);
 }
 
-void	minisiderowsl2(t_runtime *r, int i, int j)
+void	minich_hole(t_runtime *r, int i, int j)
 {
-	while (r->map.map[i][j])
-	{
-		if ((r->map.map[i][j] == ' ' || r->map.map[i][j] == 'N'
-				|| r->map.map[i][j] == 'W' || r->map.map[i][j] == 'E'
-					|| r->map.map[i][j] == 'S') && r->map.map[i][j + 1] != '1')
-			map_error();
-		j++;
-	}
+	if (r->map.map[i + 1] != NULL && (r->map.map[i + 1][j] != '1'
+		&& r->map.map[i + 1][j] != '0' && r->map.map[i + 1][j] != 'W'
+				&& r->map.map[i + 1][j] != 'N'
+					&& r->map.map[i + 1][j] != 'E'
+						&& r->map.map[i + 1][j] != 'S'))
+		map_error();
+	else if (i > 0 && (r->map.map[i - 1][j] != '1'
+		&& r->map.map[i - 1][j] != '0' && r->map.map[i - 1][j] != 'W'
+				&& r->map.map[i - 1][j] != 'N'
+					&& r->map.map[i - 1][j] != 'E'
+						&& r->map.map[i - 1][j] != 'S'))
+		map_error();
+	else if (r->map.map[i][j + 1] != '\0'
+		&& (r->map.map[i][j + 1] != '1' && r->map.map[i][j + 1] != '0'
+				&& r->map.map[i][j + 1] != 'W'
+					&& r->map.map[i][j + 1] != 'N'
+						&& r->map.map[i][j + 1] != 'E'
+							&& r->map.map[i][j + 1] != 'S'))
+		map_error();
+	else if (j > 0 && (r->map.map[i][j - 1] != '1'
+		&& r->map.map[i][j - 1] != '0' && r->map.map[i][j - 1] != 'W'
+				&& r->map.map[i][j - 1] != 'N'
+					&& r->map.map[i][j - 1] != 'E'
+						&& r->map.map[i][j - 1] != 'S'))
+		map_error();
 }
 
-void	minisiderowsl3(t_runtime *r, int i, int j)
+void	check_hole(t_runtime *r)
 {
-	while (r->map.map[i + 1][j])
+	int	i;
+	int	j;
+
+	i = 0;
+	while (r->map.map[i] != NULL)
 	{
-		if ((r->map.map[i + 1][j] == ' ' || r->map.map[i + 1][j] == 'N'
-				|| r->map.map[i + 1][j] == 'W' || r->map.map[i + 1][j] == 'E'
-					|| r->map.map[i + 1][j] == 'S') && r->map.map[i][j] != '1')
-			map_error();
-		j++;
+		j = 0;
+		while (r->map.map[i][j] != '\0')
+		{
+			if (r->map.map[i][j] == '0' || r->map.map[i][j] == 'N'
+				|| r->map.map[i][j] == 'E' || r->map.map[i][j] == 'W'
+						|| r->map.map[i][j] == 'S')
+				minich_hole(r, i, j);
+			j++;
+		}
+		i++;
 	}
 }

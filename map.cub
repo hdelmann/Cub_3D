@@ -1,10 +1,16 @@
-NO ./textures/bluestone.xpm
-SO ./textures/ses.xpm
-WE ./textures/socialcrd.xpm
 EA ./textures/mao.xpm
+SO ./textures/ses.xpm
+NO ./textures/bluestone.xpm
+WE ./textures/socialcrd.xpm
 C 255,2,255
-F 0,0,255
-1  11111111
-1111
- 1N001
-11 11
+F 0,25,25
+111 11111
+111111111111111
+1E000W0E0001001
+111011111111101
+1 10101     10111
+1  10001    11011
+1 11011      1011
+1111111      101
+11111        111
+111111
